@@ -1,13 +1,16 @@
 // Menu.jsx
 import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUserStatus } from '../actions';
 import './Menu.css';
 
-const Menu = ({ onMenuChange }) => {
+const Menu = () => {
     const [selectedStatus, setSelectedStatus] = useState('active');
+    const dispatch = useDispatch();
 
     const handleButtonClick = (status) => {
         setSelectedStatus(status);
-        onMenuChange(status);
+        dispatch(setUserStatus(status));
     };
 
     return (

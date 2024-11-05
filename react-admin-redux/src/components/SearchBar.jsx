@@ -1,10 +1,14 @@
 // SearchBar.jsx
 import React from 'react';
+import { useDispatch } from 'react-redux';
+import { setSearchQuery } from '../actions';
 import './SearchBar.css';
 
-const SearchBar = ({ onSearchChange }) => {
+const SearchBar = () => {
+    const dispatch = useDispatch();
+
     const handleInputChange = (e) => {
-        onSearchChange(e.target.value);
+        dispatch(setSearchQuery(e.target.value));
     };
 
     return (

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
 const usersData = [
     { id: 1, name: 'Nguyen Van A', status: 'active' },
@@ -9,7 +10,10 @@ const usersData = [
     { id: 6, name: 'Hoang Li E', status: 'active' },
 ];
 
-const UserList = ({ userStatus, searchQuery }) => {
+const UserList = () => {
+    const userStatus = useSelector((state) => state.userStatus);
+    const searchQuery = useSelector((state) => state.searchQuery);
+
     const filteredUsers = usersData.filter((user) => {
         const matchesStatus = user.status === userStatus;
         const matchesQuery = searchQuery
